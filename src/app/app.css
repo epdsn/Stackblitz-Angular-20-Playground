@@ -1,0 +1,10 @@
+
+header {
+    background-color: rgb(34, 34, 34);
+    color: blanchedalmond;
+    padding: .5em 1em;
+    border-radius: .5rem .5rem 0 0;
+}
+.main-content {
+    padding: .8em;
+}

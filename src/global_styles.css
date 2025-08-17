@@ -1,7 +1,12 @@
 /* Add application styles & imports to this file! */
+body, html {
+  margin: 0;
+  padding: .2em;
+  
+}
+
 body,
-html,
-p {
+html {
   background-color: rgb(216, 216, 216);
   color: #383838;
   font-family: sans-serif;
