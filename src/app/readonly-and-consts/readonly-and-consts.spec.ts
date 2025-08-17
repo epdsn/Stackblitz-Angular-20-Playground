@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Home } from './home';
+import { ReadonlyAndConsts } from './readonly-and-consts';
 
-describe('Home', () => {
-  let component: Home;
-  let fixture: ComponentFixture<Home>;
+describe('ReadonlyAndConsts', () => {
+  let component: ReadonlyAndConsts;
+  let fixture: ComponentFixture<ReadonlyAndConsts>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Home]
+      imports: [ReadonlyAndConsts]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Home);
+    fixture = TestBed.createComponent(ReadonlyAndConsts);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
