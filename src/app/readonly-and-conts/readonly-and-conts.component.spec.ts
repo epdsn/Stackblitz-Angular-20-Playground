@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReadonlyAndConsts } from './readonly-and-consts';
+import { ReadonlyAndConsts } from './readonly-and-conts.component';
 
 describe('ReadonlyAndConsts', () => {
   let component: ReadonlyAndConsts;

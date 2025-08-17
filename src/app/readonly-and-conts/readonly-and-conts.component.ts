@@ -3,12 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-readonly-and-consts',
   imports: [],
-  template: `
-    <p>
-      readonly-and-consts works!
-    </p>
-  `,
-  styleUrl: './readonly-and-consts.css'
+  templateUrl: './readonly-and-conts.component.html',
+  styleUrl: './readonly-and-conts.component.css'
 })
 export class ReadonlyAndConsts {
 

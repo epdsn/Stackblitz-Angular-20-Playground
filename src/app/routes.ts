@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
-import { ReadonlyAndConsts } from "./readonly-and-consts/readonly-and-consts";
+import { ReadonlyAndConsts } from "./readonly-and-conts/readonly-and-conts.component";
 
 const routeConfig: Routes = [
     {
