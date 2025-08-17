@@ -1,0 +1,28 @@
+/* Add application styles & imports to this file! */
+body,
+html,
+p {
+  background-color: rgb(216, 216, 216);
+  color: #383838;
+  font-family: sans-serif;
+}
+
+code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em; /* Adjust as needed */
+  background-color: #000000; /* Light grey background */
+  color: rgb(68, 202, 255); /* Dark grey text */
+  padding: 0.3em 01em;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  display: block;
+}
+
+pre code {
+  display: block; /* Ensures block-level display within pre */
+  padding: 1em;
+  background-color: #272822; /* Darker background for code blocks */
+  color: #f8f8f2; /* Light text for contrast */
+  overflow-x: auto; /* Adds horizontal scroll if content overflows */
+  border-radius: 8px;
+}
