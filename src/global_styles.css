@@ -31,3 +31,14 @@ pre code {
   overflow-x: auto; /* Adds horizontal scroll if content overflows */
   border-radius: 8px;
 }
+
+fieldset {
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 8px;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}

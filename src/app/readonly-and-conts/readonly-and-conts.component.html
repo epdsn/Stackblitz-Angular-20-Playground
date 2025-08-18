@@ -1,16 +1,99 @@
-<h1>readonly vs. conts values</h1>
+<h1>"read-only" and "const"</h1>
 
-<h2>consts</h2>
-<ul>
-    <li>are immutable values that are defined at compile time and cannot be changed</li>
-    <li>are more efficient than readonly because they are not mutable</li>
-    <li>are more secure than readonly because they are not mutable</li>
-    <li>are more flexible than readonly because they can be changed</li>
-</ul>
+<div class="comparison-container">
+    <div class="comparison-column">
+        <h2>const (constant) values:</h2>
+        <ul>
+            <li>are immutable values that are defined at compile time and cannot be changed</li>
+            <li>are more efficient than readonly because they are not mutable</li>
+            <li>are more secure than readonly because they are not mutable</li>
+            <li>are more flexible than readonly because they can be changed</li>
+        </ul>
+    </div>
+    
+    <div class="comparison-column">
+        <h2>read-only values:</h2>
+        <ul>
+            <li>are mutable values that can be changed</li>
+            <li>are more flexible than consts because they can be changed</li>
+            <li>are more secure than consts because they can be changed</li>
+        </ul>
+    </div>
+</div>
 
-<h2>readonly</h2>
-<ul>
-    <li>are mutable values that can be changed</li>
-    <li>are more flexible than consts because they can be changed</li>
-    <li>are more secure than consts because they can be changed</li>
-</ul>
+<div>
+    <h3>Working with const and readonly values</h3>
+
+    <fieldset>
+        <legend>Regular Object (Can be modified):</legend>
+        <div class="value-display">
+            <strong>Original Value:</strong> "{{ originalValue }}"
+        </div>
+        <div class="value-display">
+            <strong>Current Value:</strong> "{{ regularObject.value }}"
+        </div>
+        <div class="status-indicator" [class.modified]="hasBeenModified">
+            {{ hasBeenModified ? 'Modified' : 'Original' }}
+        </div>
+        <br />
+        Message: {{ regularMessage }}
+        <br />
+        <button (click)="changeRegularObject()">Modify Regular Object</button>
+        <button (click)="resetRegularObject()" [disabled]="!hasBeenModified">Reset to Original</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>Readonly Values (Cannot be reassigned):</legend>
+        Readonly value: <span class="value-pill">{{ fooRO }}</span>        
+        <br />
+        <div class="input-group">
+            <label for="readonlyInput">Enter a number to try to change readonly value at Runtime:</label>
+            <input 
+                type="number" 
+                id="readonlyInput" 
+                [(ngModel)]="readonlyInputValue" 
+                placeholder="Enter a number"
+                class="number-input"
+            >
+            <button (click)="changeReadonlyWithInput()">Try to Change Readonly</button>
+        </div>
+        
+        <p>At compile time, TypeScript will prevent you from changing the readonly value.
+            <br />
+            To demonstrate this, try to change the readonly value at runtime by uncommenting the lines follwing function:
+        </p>
+        <code class="code-block">
+            showCompileTimeErrorExamples() {{'{'}}<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;this.<span class="error-underline">fooRO</span> = 100;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;this.fooOne.<span class="error-underline">one</span> = "2";<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;this.<span class="error-underline">fooOne</span> = {{'{'}} one: "3" {{'}'}};<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const myConst = 42;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="error-underline">myConst</span> = 100;<br />
+            {{'}'}}
+        </code>
+        
+        <div class="explanation-box">
+            <h4>Compile-Time vs Runtime Protection:</h4>
+            <p><strong>TypeScript readonly</strong> provides compile-time protection:</p>
+            <ul>
+                <li><code>this.fooRO = 100;</code> ❌ <strong>Compile-time error</strong> - TypeScript prevents this</li>
+                <li><code>(this.fooRO as any) = 100;</code> ⚠️ <strong>Runtime bypass</strong> - TypeScript allows this, but it's unsafe</li>
+            </ul>
+            <p><strong>Key Point:</strong> TypeScript's readonly is a compile-time check that can be bypassed with type assertions.</p>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Const Values (Cannot be reassigned):</legend>
+        <div>
+        FooOne is declared as: <code>readonly fooOne = {{ '{' }} one: '1' {{ '}' }} as const;</code>
+        </div>
+        <br />
+        Const value: {{ fooOne.one }}
+        <br />
+        Message: <span>{{ constMessage }}</span>
+        <br />
+        <button (click)="changeConst()">Try to Modify Const Property</button>
+        <button (click)="reassignConst()">Try to Reassign Const</button>
+    </fieldset>
+</div>
