@@ -2,11 +2,25 @@
   <div class="home-content">
     <h1>Welcome Home!</h1>
     <p class="home-description">This is where we learn Angular!</p>
-    <code class="code-block">here is some code</code>
-    <div class="button-container">
-      <a routerLink="/readonly-and-consts" class="primary-button">
-        Readonly and Consts
-      </a>
+    
+    <div *ngIf="!name" class="name-form">
+      <h2>What's your name?</h2>
+      <div class="form-group">
+        <label style="display: none;" for="nameInput">Enter your name:</label>
+        <input 
+          type="text" 
+          id="nameInput"
+          [(ngModel)]="nameInput" 
+          placeholder="Type your name here..."
+          class="name-input"
+        >
+        <button (click)="submitName()" class="submit-btn">Submit</button>
+      </div>
+    </div>
+
+    <div *ngIf="name !== undefined" class="greeting">
+      <h2>Hello, {{ name }}! 👋</h2>
+      <p>Welcome to your Angular playground!</p>
     </div>
   </div>
 </div>
